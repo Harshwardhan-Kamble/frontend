@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const fetchAnnouncements = async () => {
-    const res = await axios.get("http://localhost:4000/announcements");
+    const res = await axios.get("https://backend-992s.vercel.app/announcements");
     setAnnouncements(res.data);
   };
 
@@ -24,7 +24,7 @@ function App() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:4000/announcements", {
+      await axios.post("https://backend-992s.vercel.app/announcements", {
         title,
         description,
       });
@@ -39,7 +39,7 @@ function App() {
   };
 
   const handleClose = async (id) => {
-    await axios.patch(`http://localhost:4000/announcements/${id}`, {
+    await axios.patch(`https://backend-992s.vercel.app/announcements/${id}`, {
       status: "closed",
     });
     fetchAnnouncements();
